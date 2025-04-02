@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --card-size: 300px;
+    --dynamic-glow-size: 100px;
+}
+
+@keyframes rotate-bg {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-family: Roboto Condensed;
+}
+
+.base-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.base-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    background: linear-gradient(20deg, #282828, #151515);
+    background-size: 150% 300%;
+    
+    animation: rotate-bg 10s ease-in-out infinite;
+    z-index: -1;
+}
+
+.base-container > .top {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.base-container > .middle {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.base-container > .bottom {
+    flex-grow: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: var(--card-size);
+    height: var(--card-size);
+
+    background-color: rgba(0, 0, 0, 0.3);
+    outline: 1px solid gray;
+    overflow: hidden;
+    
+    transition: width .2s ease-in, scale .4s ease-out, background-color .4s ease-out, box-shadow 1s ease-in, outline .3s ease-in;
+}
+
+.card > .title {
+    color: white;
+}
+
+.card > .description {
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 90%;
+}
+
+.card > .glow {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    box-shadow: 0 0 calc(var(--dynamic-glow-size) * 1) calc(var(--dynamic-glow-size) / 2) rgba(255, 255, 255, 0.0);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: opacity 0.3s ease-out, box-shadow .3s ease-out;
+}
+
+.card:hover .glow {
+    box-shadow: 0 0 calc(var(--dynamic-glow-size) * 2.5) var(--dynamic-glow-size) rgba(255, 255, 255, 0.8);
+}
+
+.card:hover {
+    scale: 1.15;
+    width: calc(var(--card-size) + var(--card-size) / 10);
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 0 200px rgba(255, 255, 255, .2);
+    cursor: pointer;
+    outline: 1px solid white;
+}
+
+button {
+    font-family: inherit;
+    padding: 20px;
+    margin: 0px 10px 0px 0px;
+    color: white;
+    background-color: rgba(0, 0, 0, .3);
+    border: none;
+    outline: 1px solid white;
+    box-shadow: 0px 0 50px rgba(0, 0, 0, .2);
+    transition: outline 1s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255);
+    box-shadow: 5px 0 50px rgba(0, 0, 0, .8);
+    color: black;
+    cursor: pointer;
+}
+

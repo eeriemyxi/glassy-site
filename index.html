@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <div class="base-container">
+      <div class="top">
+        <h1>eeriemyxi</h1>
+        <p>A computer science enthusiast.</p>
+      </div>
+      <div class="middle">
+        <div class="card" data-tilt data-tilt-max="25" data-tilt-speed="400" data-tilt-perspective="800">
+          <h1 class="title">This Is the Title</h1>
+          <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed suscipit fermentum commodo. Fusce sed mi felis. Ut nec dignissim sem, ac tincidunt tellus. Nullam consectetur quam mauris. Proin auctor ultrices nisl eu sagittis. Nam ligula nunc, blandit ut turpis nec, luctus scelerisque ante.</p>
+          <div class="glow"></div>
+        </div>
+      </div>
+      <div class="bottom">
+        <button>Projects</button>
+        <button>Blogs</button>
+      </div>
+    </div>
+  <script type="text/javascript" src="vanilla-tilt.min.js"></script>
+  <script>
+        const card = document.querySelector(".card");
+        const glow = document.querySelector(".glow");
+
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            glow.style.left = `${x}px`;
+            glow.style.top = `${y}px`;
+        });
+  </script>
+  </body>
+</html>
