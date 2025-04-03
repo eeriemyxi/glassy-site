@@ -1,7 +1,7 @@
 :root {
     --card-size: 50vh;
-    --card-title-font-size: 4vw;
-    --card-desc-font-size: 2.2vw;
+    --card-title-font-size: 2em;
+    --card-desc-font-size: 1.1em;
     --dynamic-glow-size: 100px;
 }
 
@@ -99,17 +99,25 @@ body {
 }
 
 .card > .title {
+    flex: 1;
     color: white;
     font-size: var(--card-title-font-size);
+
+    justify-content: center;
+    align-content: center;
 }
 
 .card > .description {
+    flex: 2;
     text-align: center;
     word-wrap: break-word;
     overflow-wrap: break-word;
     max-width: 90%;
 
     font-size: var(--card-desc-font-size);
+
+    justify-content: center;
+    align-content: center;
 }
 
 .card > .glow {
