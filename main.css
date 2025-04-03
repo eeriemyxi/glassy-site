@@ -122,10 +122,14 @@ body {
     outline: 1px solid white;
 }
 
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
 button {
     font-family: inherit;
     padding: 20px;
-    margin: 0px 10px 0px 0px;
     color: white;
     background-color: rgba(0, 0, 0, .3);
     border: none;
